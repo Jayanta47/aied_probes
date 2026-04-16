@@ -1,0 +1,13 @@
+import { createProbePage } from './createProbePage';
+
+export default createProbePage({
+  summary: 'Use this probe page to compare grading behavior across prompts, runs, and rubric interpretations so inconsistency becomes visible.',
+  sections: [
+    { eyebrow: 'Focus', title: 'Stability checks', body: 'Inspect variation across repeated grading scenarios and identify where judgments drift or collapse.' },
+    { eyebrow: 'Inputs', title: 'Evaluation set', body: 'Add submissions, rubric criteria, comparison conditions, and the consistency thresholds that matter.' },
+  ],
+  highlights: [
+    { label: 'Best for', value: 'Rubric reliability, grading QA, and calibration exercises.' },
+    { label: 'Output shape', value: 'Variance reports, disagreement patterns, and audit summaries.' },
+  ],
+});
