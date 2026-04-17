@@ -1,0 +1,39 @@
+{
+  "id": "planning",
+  "title": "Planning",
+  "summary": "Test how a conversational agent turns a goal into sequenced steps, milestones, and next actions while keeping the experience grounded in plain text.",
+  "inputLabel": "Participant input",
+  "inputPlaceholder": "Paste the planning prompt here or use one of the examples below.",
+  "outputLabel": "Agent response",
+  "outputCaption": "This sample output is pulled from the probe data and can be swapped later without changing the page layout.",
+  "examplesLabel": "Example prompts",
+  "examplesCaption": "Participants can copy one of these into the input box before reviewing the paired output.",
+  "examplePrompts": [
+    {
+      "id": "lesson-rollout",
+      "label": "Lesson rollout",
+      "prompt": "I am introducing a new AI literacy lesson for Grade 8 students next month. Create a practical two-week plan for preparing materials, training teachers, and piloting the lesson with one class first.",
+      "output": "Here is a two-week rollout plan.\n\nWeek 1\n1. Define the lesson goal, success criteria, and required classroom materials.\n2. Meet with participating teachers to align on timing, classroom needs, and any technology constraints.\n3. Prepare a pilot version of slides, student handouts, and a short reflection form.\n4. Run a teacher dry-run to identify confusing instructions or pacing issues.\n\nWeek 2\n1. Revise materials based on the dry-run and print or upload final versions.\n2. Pilot the lesson with one class and capture student questions, timing issues, and engagement notes.\n3. Debrief with the teacher immediately after the pilot.\n4. Make final changes before wider rollout.\n\nImmediate next actions\n- Confirm the pilot classroom by Friday.\n- Share the draft materials with teachers for feedback.\n- Schedule the dry-run session early next week."
+    },
+    {
+      "id": "research-project",
+      "label": "Research project",
+      "prompt": "Help me plan a small study on how teachers use generative AI for feedback. I need a timeline that covers recruitment, interviews, analysis, and writing over eight weeks.",
+      "output": "Suggested eight-week plan\n\nWeeks 1-2: Study setup\n- Finalize the research question, interview protocol, and consent materials.\n- Identify target participants and send recruitment invitations.\n\nWeeks 3-4: Data collection\n- Schedule and conduct interviews.\n- Keep brief memos after each interview to capture early themes.\n\nWeeks 5-6: Analysis\n- Transcribe or clean the notes.\n- Code interviews for recurring patterns in teacher goals, concerns, and feedback practices.\n- Compare themes across experience levels or subject areas.\n\nWeeks 7-8: Writing and synthesis\n- Draft findings, implications, and limitations.\n- Create a short summary for stakeholders.\n- Identify what follow-up data collection, if any, is still needed."
+    }
+  ],
+  "highlights": [
+    {
+      "label": "Input medium",
+      "value": "Free-form text prompt"
+    },
+    {
+      "label": "Output medium",
+      "value": "Structured text response"
+    },
+    {
+      "label": "Best for",
+      "value": "Sequencing work, surfacing milestones, and turning broad goals into next steps"
+    }
+  ]
+}

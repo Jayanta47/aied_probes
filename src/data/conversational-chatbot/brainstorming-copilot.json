@@ -1,0 +1,39 @@
+{
+  "id": "brainstorming-copilot",
+  "title": "Brainstorming CoPilot",
+  "summary": "Explore how a conversational chatbot supports idea generation with text-based prompts, sample outputs, and reusable example starters.",
+  "inputLabel": "Participant input",
+  "inputPlaceholder": "Paste the brainstorming prompt here or start from one of the examples below.",
+  "outputLabel": "Agent response",
+  "outputCaption": "The response panel shows a sample text output defined in the probe data for this page.",
+  "examplesLabel": "Example prompts",
+  "examplesCaption": "These prompts are meant to be copied into the input box so participants can see a representative brainstorming exchange.",
+  "examplePrompts": [
+    {
+      "id": "teacher-pd",
+      "label": "Teacher PD ideas",
+      "prompt": "Brainstorm workshop ideas for helping teachers learn to use generative AI responsibly in their lesson planning. I want options that are practical, collaborative, and easy to pilot.",
+      "output": "Here are several workshop directions to explore.\n\n1. Prompt makeover lab\nTeachers bring a real planning task and iteratively improve prompts together.\n\n2. Risk spotting clinic\nParticipants review AI-generated lesson materials and identify accuracy, bias, and accessibility concerns.\n\n3. Before-and-after planning sprint\nTeachers compare a lesson planned without AI and one planned with AI support, then discuss what changed.\n\n4. Subject-specific design tables\nBreak into groups by subject area so teachers can generate examples that feel immediately usable.\n\n5. Reflection wall\nEnd with a shared discussion on where AI saved time, where it created new work, and where teacher judgment mattered most."
+    },
+    {
+      "id": "student-support",
+      "label": "Student support concepts",
+      "prompt": "Give me ideas for an AI-powered student support tool for first-generation college students. Focus on helpful, realistic features instead of futuristic ones.",
+      "output": "Possible concept directions\n\n- Deadline translator: turns course syllabi into a simple weekly checklist.\n- Office-hours coach: helps students draft questions before meeting instructors.\n- Campus process explainer: breaks down forms, advising steps, and registration tasks in plain language.\n- Study plan builder: converts a goal like 'prepare for midterms' into a short daily plan.\n- Reflection companion: prompts students to log wins, blockers, and support needs each week.\n\nA strong next step would be to group these ideas into academic, administrative, and confidence-building supports."
+    }
+  ],
+  "highlights": [
+    {
+      "label": "Input medium",
+      "value": "Free-form text prompt"
+    },
+    {
+      "label": "Output medium",
+      "value": "Conversational text response"
+    },
+    {
+      "label": "Best for",
+      "value": "Divergent ideation, concept expansion, and early-stage exploration"
+    }
+  ]
+}

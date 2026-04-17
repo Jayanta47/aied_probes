@@ -83,11 +83,6 @@ export const probes = [
         blurb: 'Support divergent thinking, idea expansion, and fast concept exploration with a conversational partner.',
       },
       {
-        id: 'deep-research',
-        title: 'Deep Research',
-        blurb: 'Run longer-form investigation workflows that gather, compare, and synthesize evidence.',
-      },
-      {
         id: 'planning',
         title: 'Planning',
         blurb: 'Transform goals into sequenced steps, options, and operational next moves.',
