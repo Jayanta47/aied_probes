@@ -1,0 +1,27 @@
+{
+  "id": "visual-ingestion",
+  "title": "Visual Ingestion",
+  "summary": "Simulate passing handwritten class notes into the system and show the extracted text on the right after upload.",
+  "inputMode": "upload",
+  "inputLabel": "Visual input",
+  "inputTitle": "Handwritten class notes",
+  "uploadLabel": "Upload handwritten notes",
+  "uploadNote": "This upload is only for the visual design. Press the button to simulate sending in scanned handwritten notes.",
+  "sampleFileLabel": "Selected file",
+  "submitLabel": "Upload notes",
+  "examplesLabel": "Sample input",
+  "examplesCaption": "Use the handwritten notes sample below to see how extracted text would appear.",
+  "outputLabel": "Extracted text",
+  "outputTitle": "Recognized notes",
+  "outputCaption": "The right panel shows the text interpretation of the uploaded handwritten notes.",
+  "workflowImagePath": "",
+  "exampleInputs": [
+    {
+      "id": "class-notes",
+      "label": "Handwritten classnotes",
+      "input": "handwritten-classnotes.jpg",
+      "outputType": "text",
+      "outputText": "Photosynthesis notes\n\n- Plants use sunlight to make food\n- Inputs: water + carbon dioxide + light energy\n- Output: glucose + oxygen\n- Mostly happens in the chloroplasts\n- Chlorophyll helps absorb light\n- Important because it stores energy and releases oxygen"
+    }
+  ]
+}

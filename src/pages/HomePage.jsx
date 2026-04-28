@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { Layers3, Orbit } from 'lucide-react';
 import TopLevelCard from '../components/cards/TopLevelCard';
 import ChildProbeCard from '../components/cards/ChildProbeCard';
@@ -15,9 +16,22 @@ export default function HomePage({
   transition,
 }) {
   const selectedParent = probes.find((probe) => probe.id === selectedParentId) ?? null;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!selectedParent || !sectionRef.current) {
+      return;
+    }
+
+    sectionRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }, [selectedParent]);
 
   return (
     <MotionSection
+      ref={sectionRef}
       key="home"
       initial={{ opacity: 0.82, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -37,11 +51,10 @@ export default function HomePage({
           AI Probe Gallery
         </div>
         <h1 className="max-w-5xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
-          Start with the top-level tools, then drill into exact probes only when you need them.
+          Probes for Managing Higher Education Faculty Task
         </h1>
         <p className="max-w-3xl text-base leading-8 text-slate-700 md:text-lg">
-          The front page now stays focused on the primary probe gallery. Top-level probes that contain exact probes
-          open a right-side selection panel. Direct probes jump straight into their own dedicated view page.
+          Start with the top-level tools, then drill into exact probes only when you need them.
         </p>
       </header>
 

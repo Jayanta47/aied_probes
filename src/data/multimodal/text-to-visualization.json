@@ -1,0 +1,24 @@
+{
+  "id": "text-to-visualization",
+  "title": "Text-to-Visualization",
+  "summary": "Use a text prompt and render a visual output.",
+  "inputMode": "text",
+  "inputLabel": "Text input",
+  "inputTitle": "Prompt box",
+  "inputPlaceholder": "Describe what you want to view.",
+  "submitLabel": "Enter",
+  "examplesLabel": "Example prompts",
+  "examplesCaption": "Select a sample prompt, then press Enter to display the visualization.",
+  "outputLabel": "Visual output",
+  "outputTitle": "Generated image",
+  "outputCaption": "Photosynthesis inforgraphics with clear labels and arrows.",
+  "workflowImagePath": "/workflow/text2img.png",
+  "exampleInputs": [
+    {
+      "id": "photosynthesis-diagram",
+      "label": "Photosynthesis diagram",
+      "input": "Create a classroom-friendly diagram that explains photosynthesis. Show sunlight, water, carbon dioxide, glucose, and oxygen with clear labels and arrows.",
+      "outputType": "image"
+    }
+  ]
+}

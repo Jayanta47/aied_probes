@@ -6,6 +6,7 @@
   "inputPlaceholder": "Paste the planning prompt here or use one of the examples below.",
   "outputLabel": "Agent response",
   "outputCaption": "This sample output is pulled from the probe data and can be swapped later without changing the page layout.",
+  "workflowImagePath": "/workflow/llm_advanced.png",
   "examplesLabel": "Example prompts",
   "examplesCaption": "Participants can copy one of these into the input box before reviewing the paired output.",
   "examplePrompts": [

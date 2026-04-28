@@ -1,0 +1,49 @@
+{
+  "id": "attendance-engagement",
+  "title": "Attendance and Engagement",
+  "summary": "Simulate a classroom facial recognition workflow where faculty can upload either a class video feed or a classroom photo after class and review attendance records on the right.",
+  "inputLabel": "Classroom input",
+  "inputTitle": "Video or image upload",
+  "uploadLabel": "Upload classroom capture",
+  "uploadNote": "Faculty can work from a class video feed after the session or from a single classroom image. Choose one sample below, then press Enter to reveal the detected roster.",
+  "sampleFileLabel": "Selected file",
+  "submitLabel": "Enter",
+  "examplesLabel": "Sample uploads",
+  "examplesCaption": "Use a video sample to show attendance and engagement together, or use a photo sample to show attendance only.",
+  "outputLabel": "Recognition output",
+  "outputTitle": "Attendance results",
+  "outputCaption": "If the uploaded input is a video feed, the table includes engagement. If the uploaded input is only a photo, the engagement column is omitted.",
+  "workflowImagePath": "",
+  "exampleInputs": [
+    {
+      "id": "class-video-feed",
+      "label": "Class video feed",
+      "input": "period-2-classroom-feed.mp4",
+      "inputType": "video",
+      "outputType": "attendance-table",
+      "columns": ["Name", "Roll", "Engagement"],
+      "rows": [
+        ["Ava Thompson", "R-014", "High"],
+        ["Noah Patel", "R-021", "Medium"],
+        ["Mia Garcia", "R-037", "High"],
+        ["Ethan Kim", "R-042", "Low"],
+        ["Sophia Nguyen", "R-055", "Medium"]
+      ]
+    },
+    {
+      "id": "class-photo",
+      "label": "Class photo",
+      "input": "period-2-classroom-photo.jpg",
+      "inputType": "photo",
+      "outputType": "attendance-table",
+      "columns": ["Name", "Roll"],
+      "rows": [
+        ["Ava Thompson", "R-014"],
+        ["Noah Patel", "R-021"],
+        ["Mia Garcia", "R-037"],
+        ["Ethan Kim", "R-042"],
+        ["Sophia Nguyen", "R-055"]
+      ]
+    }
+  ]
+}

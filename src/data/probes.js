@@ -14,7 +14,7 @@ export const probes = [
       },
       {
         id: 'computer-action-agents',
-        title: 'Computer Action Agents (Copilots)',
+        title: 'Computer Use Agents (Copilots)',
         blurb: 'Copilots that operate software interfaces, trigger actions, and help users complete tasks on-device.',
       },
     ],
@@ -59,14 +59,9 @@ export const probes = [
       },
       {
         id: 'virtual-teacher',
-        title: 'Virtual Teacher',
+        title: 'Virtual Teacher Substitute',
         blurb: 'Create teacher-like instructional behavior for tutoring, demonstration, or instructional experiments.',
-      },
-      {
-        id: 'socratic-partner',
-        title: 'Socratic Partner',
-        blurb: 'Encourage reflection and reasoning through guided, dialogic questioning patterns.',
-      },
+      }
     ],
   },
   {
@@ -84,15 +79,15 @@ export const probes = [
       },
       {
         id: 'planning',
-        title: 'Planning',
+        title: 'Reasoning and Planning',
         blurb: 'Transform goals into sequenced steps, options, and operational next moves.',
       },
     ],
   },
   {
     id: 'auditing-models',
-    title: 'Auditing Models',
-    eyebrow: 'Quality and trust',
+    title: 'Course Analytics',
+    eyebrow: 'Course diagnostics',
     description: 'Inspect outputs for consistency, bias, accessibility, and other high-stakes quality signals.',
     accent: 'from-violet-300/35 via-indigo-400/18 to-blue-700/24',
     tint: 'rgba(146, 161, 255, 0.16)',
@@ -100,63 +95,25 @@ export const probes = [
       {
         id: 'grading-consistency-audit',
         title: 'Grading Consistency Audit',
-        blurb: 'Compare grading behavior across prompts, runs, and conditions to surface instability.',
+        blurb: 'Evaluate grading outputs for alignment with rubrics, fairness across student groups, and consistency across similar responses.',
       },
       {
         id: 'content-bias-accessibility-audit',
         title: 'Content Bias and Accessibility Audit',
         blurb: 'Review generated materials for biased framing, exclusion, and accessibility breakdowns.',
       },
-    ],
-  },
-  {
-    id: 'analysis-tools',
-    title: 'Analysis Tools',
-    eyebrow: 'Outcome diagnostics',
-    description: 'Measure patterns in feedback, grading, and output quality to inform iteration.',
-    accent: 'from-cyan-200/35 via-sky-400/18 to-indigo-500/24',
-    tint: 'rgba(110, 196, 255, 0.16)',
-    children: [
       {
-        id: 'grading-analysis-feedback',
-        title: 'Grading Analysis and Feedback',
-        blurb: 'Inspect grading outputs and feedback quality to understand alignment, drift, and instructional value.',
-      },
-    ],
-  },
-  {
-    id: 'codebook-generation',
-    title: 'Codebook Generation',
-    eyebrow: 'Research structure',
-    description: 'Generate coding schemes and category structures from qualitative materials and evolving themes.',
-    accent: 'from-stone-200/35 via-zinc-300/14 to-slate-500/24',
-    tint: 'rgba(184, 194, 208, 0.16)',
-  },
-  {
-    id: 'text-processing',
-    title: 'Text Processing',
-    eyebrow: 'Language transforms',
-    description: 'Condense, label, and structure textual data so it becomes easier to review at scale.',
-    accent: 'from-lime-200/34 via-green-400/16 to-emerald-600/24',
-    tint: 'rgba(141, 224, 132, 0.16)',
-    children: [
-      {
-        id: 'text-summarization',
-        title: 'Text Summarization',
-        blurb: 'Produce concise summaries from longer source material while preserving the key signal.',
-      },
-      {
-        id: 'text-classification',
-        title: 'Text Classification',
-        blurb: 'Assign labels or categories to text for sorting, auditing, and downstream analysis.',
-      },
+        id: 'codebook-generation',
+        title: 'Codebook Generation',
+        blurb: 'Generate coding schemes and category structures from qualitative materials and evolving themes.',
+      }
     ],
   },
   {
     id: 'trace-analysis',
-    title: 'Trace Analysis',
+    title: 'Student Learning Trajectory Analysis',
     eyebrow: 'Behavioral signals',
-    description: 'Read longitudinal traces of activity, conversation, and learning behavior to uncover progression.',
+    description: 'Read long term traces of activity, conversation, and learning behavior to uncover progression.',
     accent: 'from-rose-200/34 via-orange-300/16 to-red-600/24',
     tint: 'rgba(255, 152, 126, 0.16)',
     children: [
@@ -171,14 +128,6 @@ export const probes = [
         blurb: 'Track conversational patterns, interventions, and drift across longer exchanges.',
       },
     ],
-  },
-  {
-    id: 'information-retrieval',
-    title: 'Information Retrieval',
-    eyebrow: 'Search and recall',
-    description: 'Locate the right evidence, context, or examples from larger corpora when precision matters.',
-    accent: 'from-blue-200/35 via-slate-300/14 to-cyan-600/24',
-    tint: 'rgba(129, 177, 255, 0.16)',
   },
   {
     id: 'facial-recognition',
@@ -209,14 +158,6 @@ export const probes = [
         blurb: 'Adapt a model with organization-specific data while preserving workflow and governance needs.',
       },
     ],
-  },
-  {
-    id: 'transparency-interpretability-tool',
-    title: 'Transparency / Interpretability Tool',
-    eyebrow: 'Explain the system',
-    description: 'Surface how a model reached a result and expose signals that help people inspect confidence or rationale.',
-    accent: 'from-teal-200/35 via-cyan-300/16 to-slate-700/24',
-    tint: 'rgba(120, 221, 216, 0.16)',
   },
 ];
 

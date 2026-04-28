@@ -6,6 +6,7 @@
   "inputPlaceholder": "Paste the brainstorming prompt here or start from one of the examples below.",
   "outputLabel": "Agent response",
   "outputCaption": "The response panel shows a sample text output defined in the probe data for this page.",
+  "workflowImagePath": "/workflow/llm_normal.png",
   "examplesLabel": "Example prompts",
   "examplesCaption": "These prompts are meant to be copied into the input box so participants can see a representative brainstorming exchange.",
   "examplePrompts": [

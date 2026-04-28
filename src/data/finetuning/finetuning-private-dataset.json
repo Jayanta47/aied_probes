@@ -1,0 +1,45 @@
+{
+  "id": "finetuning-private-dataset",
+  "title": "Finetuning with Private Dataset",
+  "summary": "Show faculty how a model can be trained on institution-owned teaching materials and then compared against a generic model during inference.",
+  "workflowImagePath": "",
+  "trainingLabel": "Training setup",
+  "trainingTitle": "Upload dataset and train",
+  "trainingNote": "Faculty can use past assignments, rubrics, and feedback to adapt an open source model so it better matches local grading expectations.",
+  "datasetLabel": "Sample training data",
+  "datasetCaption": "Use these sample files to represent the private teaching corpus.",
+  "datasetFiles": [
+    "past-assignments.csv",
+    "rubrics.pdf",
+    "feedback-history.json"
+  ],
+  "modelLabel": "Open source model",
+  "costLabel": "Estimated training cost",
+  "costValue": "$18.40",
+  "trainButtonLabel": "Start training",
+  "trainingStatusLabel": "Training status",
+  "trainingInProgressText": "Training in progress",
+  "trainingCompleteText": "Finetuned model ready",
+  "trainingCompleteNote": "The customized model is now available for side-by-side comparison with the generic model.",
+  "modelOptions": [
+    "Mistral 7B Instruct",
+    "Llama 3.1 8B",
+    "Qwen 2.5 7B"
+  ],
+  "inferenceLabel": "Inference comparison",
+  "inferenceTitle": "Prompt and model outputs",
+  "promptLabel": "Evaluation prompt",
+  "promptPlaceholder": "Paste a grading or feedback prompt here.",
+  "submitLabel": "Enter",
+  "promptExamplesLabel": "Example prompt",
+  "promptExamplesCaption": "Use a classroom feedback prompt to compare the generic model with the finetuned version.",
+  "promptExamples": [
+    {
+      "id": "feedback-alignment",
+      "label": "Assignment feedback",
+      "prompt": "Review this student response to a short essay question and provide feedback aligned with the department rubric. The response shows a clear argument but weak textual evidence and limited counterargument analysis.",
+      "genericOutput": "The response is generally well written and shows a good understanding of the topic. To improve, the student should add more evidence and explain their reasoning in more detail. The writing could also be expanded to address other perspectives.\n\nOverall feedback: Good start, but needs stronger support and deeper analysis.",
+      "finetunedOutput": "Rubric-aligned feedback\n\nClaim and focus: The student presents a clear central argument, which aligns with the rubric's expectations for a focused thesis.\n\nUse of evidence: This is the main area for improvement. The response references the text only broadly and does not include enough specific evidence to support the claim. To move up on the rubric, the student should add at least two concrete examples or quotations and explain how each supports the argument.\n\nAnalysis and reasoning: The explanation remains surface-level. The student begins to interpret the topic, but the reasoning does not yet show the deeper analysis required for proficient performance.\n\nCounterargument: The rubric expects attention to alternative perspectives. Adding one counterargument and a short rebuttal would strengthen the response.\n\nSuggested teacher comment: Your argument is clear, but to meet the rubric more fully you need stronger textual evidence and deeper explanation of how that evidence supports your point."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "web-agents",
+  "title": "Web Agents",
+  "summary": "Show how a browser-based agent can respond to a prompt with a demonstration video, revealed only after the participant presses Enter.",
+  "inputLabel": "Task prompt",
+  "inputTitle": "Prompt box",
+  "inputPlaceholder": "Describe a web-based task for the agent.",
+  "submitLabel": "Enter",
+  "examplesLabel": "Example prompts",
+  "examplesCaption": "Choose a prompt, then press Enter to load the demonstration video from the beginning.",
+  "outputLabel": "Video response",
+  "outputTitle": "Embedded demo",
+  "outputCaption": "The YouTube link is stored in the data file for now, so it can be replaced later without changing the layout.",
+  "workflowImagePath": "/workflow/image-1-10.png",
+  "examplePrompts": [
+    {
+      "id": "course-search",
+      "label": "Course search workflow",
+      "prompt": "Find three introductory AI courses for teachers, compare their learning outcomes, and summarize the main differences in a table.",
+      "videoEmbedUrl": "https://www.youtube.com/embed/AflkZK0vlf0"
+    }
+  ]
+}

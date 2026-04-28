@@ -1,0 +1,27 @@
+{
+  "id": "live-speech-transcription",
+  "title": "Live Speech Transcription",
+  "summary": "Simulate a class recording upload and reveal the transcript only when the participant presses the upload button.",
+  "inputMode": "upload",
+  "inputLabel": "Audio input",
+  "inputTitle": "Class recording",
+  "uploadLabel": "Upload class recording",
+  "uploadNote": "No real recording is needed here. This button is just a stand-in for passing in a classroom audio file.",
+  "sampleFileLabel": "Selected file",
+  "submitLabel": "Upload recording",
+  "examplesLabel": "Sample input",
+  "examplesCaption": "Use the sample classroom recording below to simulate an upload.",
+  "outputLabel": "Transcript output",
+  "outputTitle": "Transcript",
+  "outputCaption": "The transcript appears on the right only after the sample recording is uploaded.",
+  "workflowImagePath": "",
+  "exampleInputs": [
+    {
+      "id": "class-recording",
+      "label": "Class recording",
+      "input": "grade-8-science-class-recording.m4a",
+      "outputType": "text",
+      "outputText": "Teacher: Today we are talking about how plants make their own food.\n\nStudent 1: Is that what photosynthesis means?\n\nTeacher: Exactly. Photosynthesis is the process plants use to turn sunlight, water, and carbon dioxide into glucose.\n\nStudent 2: Where does the oxygen come from?\n\nTeacher: It is released as part of the process, which is one reason plants are so important.\n\nStudent 3: So sunlight is basically the energy source?\n\nTeacher: Yes. Sunlight powers the reaction and helps the plant produce energy-rich sugars."
+    }
+  ]
+}

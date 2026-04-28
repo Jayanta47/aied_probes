@@ -1,28 +1,93 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, ChevronRight, Clipboard, Compass, MessageSquareQuote, Sparkles } from 'lucide-react';
+import {
+  ArrowLeft,
+  Camera,
+  ChevronRight,
+  Clipboard,
+  Compass,
+  MonitorPlay,
+  Sparkles,
+  Upload,
+  Users,
+} from 'lucide-react';
 import WorkflowSection from './WorkflowSection';
 
-export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
-  const examples = probeData.examplePrompts ?? [];
+function AttendanceTable({ displayedOutput, probeData }) {
+  if (!displayedOutput) {
+    return (
+      <div className="mt-5 flex min-h-[560px] items-center justify-center rounded-[24px] border border-slate-200 bg-slate-50/90 px-5 py-5 text-center">
+        <p className="max-w-md text-sm leading-7 text-slate-600">
+          Press {probeData.submitLabel} to show the detected attendance results for the selected classroom input.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-5 min-h-[560px] rounded-[24px] border border-slate-200 bg-slate-50/90 px-5 py-5">
+      <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
+        <Users className="h-4 w-4" />
+        Detected roster
+      </div>
+      <div className="mt-5 overflow-hidden rounded-[22px] border border-slate-200 bg-white">
+        <table className="min-w-full border-collapse text-left text-sm text-slate-700">
+          <thead className="bg-slate-100/90">
+            <tr>
+              {displayedOutput.columns.map((column) => (
+                <th key={column} className="px-4 py-3 font-semibold text-slate-900">
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {displayedOutput.rows.map((row, index) => (
+              <tr key={`${row[0]}-${index}`} className="border-t border-slate-200">
+                {row.map((cell, cellIndex) => (
+                  <td key={`${cell}-${cellIndex}`} className="px-4 py-3">
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default function FacialRecognitionProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
+  const examples = probeData.exampleInputs ?? [];
   const [activeExampleId, setActiveExampleId] = useState(examples[0]?.id ?? null);
   const activeExample = examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null;
-  const [inputValue, setInputValue] = useState(activeExample?.prompt ?? '');
-  const [displayedOutput, setDisplayedOutput] = useState('');
+  const [inputValue, setInputValue] = useState(activeExample?.input ?? '');
+  const [displayedOutput, setDisplayedOutput] = useState(null);
 
   useEffect(() => {
     setActiveExampleId(examples[0]?.id ?? null);
-    setInputValue(examples[0]?.prompt ?? '');
-    setDisplayedOutput('');
+    setInputValue(examples[0]?.input ?? '');
+    setDisplayedOutput(null);
   }, [selectedProbe.id]);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
-    setInputValue(example.prompt);
+    setInputValue(example.input);
   };
 
   const handleSubmit = () => {
-    const matchingExample = examples.find((example) => example.prompt === inputValue.trim());
-    setDisplayedOutput((matchingExample ?? activeExample)?.output ?? '');
+    const matchingExample = examples.find((example) => example.input === inputValue.trim()) ?? activeExample;
+
+    if (!matchingExample) {
+      setDisplayedOutput(null);
+      return;
+    }
+
+    setDisplayedOutput({
+      type: matchingExample.outputType,
+      columns: matchingExample.columns ?? [],
+      rows: matchingExample.rows ?? [],
+    });
   };
 
   return (
@@ -47,7 +112,7 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
               <Compass className="h-3.5 w-3.5" />
-              Conversational Probe
+              Facial Recognition Probe
             </div>
             <div className="space-y-3">
               <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
@@ -63,9 +128,9 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
               background: `linear-gradient(155deg, rgba(255,255,255,0.95), ${topLevelProbe.tint})`,
             }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-500">Medium pairing</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-500">Input flexibility</p>
             <p className="mt-2 text-sm leading-6 text-slate-700">
-              Text prompt in, text response out. Each probe can still define its own examples and displayed answer.
+              The same layout supports either a classroom video feed or a single classroom image, and the output adapts to the chosen input.
             </p>
           </div>
         </div>
@@ -75,20 +140,26 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
         <section className="grid gap-5">
           <div className="rounded-[30px] border border-slate-200 bg-white/92 p-6 shadow-[0_30px_90px_rgba(148,163,184,0.18)]">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{probeData.inputLabel}</p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-950">Input box</h2>
-            <textarea
-              value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
-              placeholder={probeData.inputPlaceholder}
-              className="mt-5 min-h-[220px] w-full resize-none rounded-[24px] border border-slate-200 bg-slate-50/90 px-4 py-4 text-sm leading-7 text-slate-800 outline-none transition focus:border-slate-300 focus:bg-white"
-            />
+            <h2 className="mt-2 text-2xl font-semibold text-slate-950">{probeData.inputTitle}</h2>
+
+            <div className="mt-5 rounded-[24px] border border-dashed border-slate-300 bg-slate-50/90 p-5">
+              <div className="flex items-center gap-3 text-slate-800">
+                {activeExample?.inputType === 'video' ? <MonitorPlay className="h-5 w-5" /> : <Camera className="h-5 w-5" />}
+                <p className="text-sm font-medium">{probeData.uploadLabel}</p>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{probeData.uploadNote}</p>
+              <div className="mt-4 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700">
+                {probeData.sampleFileLabel}: {inputValue || activeExample?.input}
+              </div>
+            </div>
+
             <div className="mt-4 flex justify-end">
               <button
                 type="button"
                 onClick={handleSubmit}
                 className="inline-flex items-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Enter
+                {probeData.submitLabel}
               </button>
             </div>
           </div>
@@ -105,7 +176,7 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{probeData.examplesLabel}</p>
-                <h2 className="mt-1 text-xl font-semibold text-slate-950">Example prompts</h2>
+                <h2 className="mt-1 text-xl font-semibold text-slate-950">Sample uploads</h2>
               </div>
             </div>
 
@@ -123,7 +194,10 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
                     }`}
                   >
                     <div className="flex flex-wrap items-center justify-between gap-3">
-                      <p className="text-sm font-semibold text-slate-900">{example.label}</p>
+                      <div className="flex items-center gap-2">
+                        {example.inputType === 'video' ? <MonitorPlay className="h-4 w-4 text-slate-600" /> : <Camera className="h-4 w-4 text-slate-600" />}
+                        <p className="text-sm font-semibold text-slate-900">{example.label}</p>
+                      </div>
                       <button
                         type="button"
                         onClick={() => applyExample(example)}
@@ -134,10 +208,10 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
                         }`}
                       >
                         <Clipboard className="h-3.5 w-3.5" />
-                        Use example
+                        Use file
                       </button>
                     </div>
-                    <p className="mt-3 line-clamp-4 whitespace-pre-wrap text-sm leading-6 text-slate-600">{example.prompt}</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{example.input}</p>
                   </div>
                 );
               })}
@@ -147,19 +221,11 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
 
         <section>
           <div className="rounded-[30px] border border-slate-200 bg-white/92 p-6 shadow-[0_30px_90px_rgba(148,163,184,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{probeData.outputLabel}</p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-950">Output box</h2>
-              <div className="mt-5 min-h-[560px] rounded-[24px] border border-slate-200 bg-slate-50/90 px-5 py-5">
-                <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                  <MessageSquareQuote className="h-4 w-4" />
-                  Sample response
-                </div>
-                <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                  {displayedOutput || 'Press Enter to show the sample text response for the current prompt.'}
-                </p>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-500">{probeData.outputCaption}</p>
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{probeData.outputLabel}</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-950">{probeData.outputTitle}</h2>
+            <AttendanceTable displayedOutput={displayedOutput} probeData={probeData} />
+            <p className="mt-4 text-sm leading-7 text-slate-500">{probeData.outputCaption}</p>
+          </div>
         </section>
       </div>
 
