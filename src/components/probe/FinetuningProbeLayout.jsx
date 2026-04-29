@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 import WorkflowSection from './WorkflowSection';
 
-export default function FinetuningProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
-  const promptExamples = probeData.promptExamples ?? [];
+function FinetuningProbeContent({ topLevelProbe, selectedProbe, onBack, probeData }) {
+  const promptExamples = useMemo(() => probeData.promptExamples ?? [], [probeData.promptExamples]);
   const [selectedModel, setSelectedModel] = useState(probeData.modelOptions?.[0] ?? '');
   const [activePromptId, setActivePromptId] = useState(promptExamples[0]?.id ?? null);
   const activePrompt = useMemo(
@@ -23,14 +23,6 @@ export default function FinetuningProbeLayout({ topLevelProbe, selectedProbe, on
   const [promptValue, setPromptValue] = useState(activePrompt?.prompt ?? '');
   const [trainingState, setTrainingState] = useState('idle');
   const [comparisonOutput, setComparisonOutput] = useState(null);
-
-  useEffect(() => {
-    setSelectedModel(probeData.modelOptions?.[0] ?? '');
-    setActivePromptId(promptExamples[0]?.id ?? null);
-    setPromptValue(promptExamples[0]?.prompt ?? '');
-    setTrainingState('idle');
-    setComparisonOutput(null);
-  }, [selectedProbe.id, probeData.modelOptions, promptExamples]);
 
   useEffect(() => {
     if (trainingState !== 'training') {
@@ -315,4 +307,8 @@ export default function FinetuningProbeLayout({ topLevelProbe, selectedProbe, on
       <WorkflowSection topLevelProbe={topLevelProbe} probeData={probeData} />
     </div>
   );
+}
+
+export default function FinetuningProbeLayout(props) {
+  return <FinetuningProbeContent key={props.selectedProbe.id} {...props} />;
 }

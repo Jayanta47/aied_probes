@@ -1,0 +1,33 @@
+{
+  "id": "knowledge-tracing",
+  "title": "Knowledge Tracing",
+  "summary": "Generate static learning trajectory insights from a selected course so the input-to-output flow is easy to see.",
+  "workflowImagePath": "/workflow/trace_analysis.png",
+  "inputLabel": "Course input",
+  "inputTitle": "Select a course",
+  "courseLabel": "Select Course",
+  "submitLabel": "Generate Learning Insights",
+  "courseOptions": [
+    "Intro to Data Science",
+    "Linear Algebra",
+    "Human-Computer Interaction",
+    "Machine Learning"
+  ],
+  "outputLabel": "Learning insights",
+  "outputTitle": "Interpreted trajectory",
+  "emptyOutputText": "Select a course and generate insights to see the interpreted learning trajectory.",
+  "timelineSummaryLabel": "Timeline Summary",
+  "timelineSummary": "Students showed steady improvement from Week 1 to Week 4. A noticeable drop occurred in Week 5, followed by gradual recovery in Weeks 6-8.",
+  "keyInsightsLabel": "Key Insights",
+  "keyInsights": [
+    "Performance declined in Week 5, indicating difficulty with new material.",
+    "High engagement but lower mastery suggests conceptual confusion.",
+    "Recovery after Week 6 suggests students adapted to the topic."
+  ],
+  "teachingSuggestionsLabel": "Teaching Suggestions",
+  "teachingSuggestions": [
+    "Revisit Week 5 content with additional examples.",
+    "Introduce visual explanations for complex topics.",
+    "Add a short formative quiz before Week 6."
+  ]
+}

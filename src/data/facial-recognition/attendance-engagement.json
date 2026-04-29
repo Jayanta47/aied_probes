@@ -13,7 +13,7 @@
   "outputLabel": "Recognition output",
   "outputTitle": "Attendance results",
   "outputCaption": "If the uploaded input is a video feed, the table includes engagement. If the uploaded input is only a photo, the engagement column is omitted.",
-  "workflowImagePath": "",
+  "workflowImagePath": "/workflow/face_recog.png",
   "exampleInputs": [
     {
       "id": "class-video-feed",

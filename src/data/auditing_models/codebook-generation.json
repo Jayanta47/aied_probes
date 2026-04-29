@@ -1,0 +1,67 @@
+{
+  "id": "codebook-generation",
+  "title": "Codebook Generation",
+  "summary": "Generate a static codebook-style interpretation from a selected course so the input-to-output flow is easy to understand.",
+  "workflowImagePath": "/workflow/codebook.png",
+  "inputLabel": "Course input",
+  "inputTitle": "Select a course",
+  "courseLabel": "Select Course",
+  "submitLabel": "Generate Codebook now",
+  "teachingToggleLabel": "Enable Teaching Insights",
+  "courseOptions": [
+    "Intro to Data Science",
+    "Linear Algebra",
+    "Human-Computer Interaction",
+    "Machine Learning"
+  ],
+  "outputLabel": "Codebook output",
+  "outputTitle": "Structured teaching insights",
+  "emptyOutputText": "Select a course and generate codebook insights to see the structured output.",
+  "themesLabel": "Extracted Themes",
+  "themes": [
+    "Lecture Pacing",
+    "Content Load",
+    "Instruction Clarity",
+    "Assignment Design",
+    "Learning Outcomes"
+  ],
+  "groupedInsightsLabel": "Grouped Insights",
+  "groupedInsights": [
+    {
+      "title": "Pacing Issues",
+      "items": [
+        "Lecture pacing",
+        "Content load"
+      ],
+      "summary": "Students describe the pacing as rushed and the amount of material as difficult to process within a single lecture."
+    },
+    {
+      "title": "Cognitive Load",
+      "items": [
+        "Instruction clarity"
+      ],
+      "summary": "Students suggest that unclear instructions make it harder to follow expectations and increase mental effort during coursework."
+    },
+    {
+      "title": "Materials & Assignments",
+      "items": [
+        "Assignment design",
+        "Learning outcomes"
+      ],
+      "summary": "Students see value in the assignments, but they want stronger alignment between lecture content, examples, and expected outcomes."
+    }
+  ],
+  "teachingInsightsLabel": "Teaching Insights",
+  "teachingInsights": [
+    "Students feel lectures are rushed and content-heavy.",
+    "Instructions are difficult to follow, increasing cognitive load.",
+    "Assignments are effective but could better align with lectures."
+  ],
+  "teachingActionsLabel": "Teaching Actions",
+  "teachingActions": [
+    "Reduce content per lecture.",
+    "Introduce pauses or checkpoints during teaching.",
+    "Align lecture examples with assignments.",
+    "Simplify instruction language."
+  ]
+}

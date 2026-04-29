@@ -6,6 +6,7 @@ export const probes = [
     description: 'Coordinate agents that browse, act, and complete structured tasks across digital environments.',
     accent: 'from-sky-300/35 via-cyan-400/18 to-blue-600/28',
     tint: 'rgba(92, 191, 255, 0.16)',
+    tags: ['Material prep', 'Admin workflow'],
     children: [
       {
         id: 'web-agents',
@@ -26,6 +27,7 @@ export const probes = [
     description: 'Bridge text, speech, image, video, and audio so one experience can move fluidly between formats.',
     accent: 'from-emerald-300/35 via-teal-400/18 to-lime-500/24',
     tint: 'rgba(90, 214, 169, 0.16)',
+    tags: ['Material prep', 'Lecture'],
     children: [
       {
         id: 'text-to-visualization',
@@ -51,6 +53,7 @@ export const probes = [
     description: 'Create realistic scenarios for training, rehearsal, or experimentation before working with live users.',
     accent: 'from-amber-200/38 via-orange-400/18 to-rose-500/26',
     tint: 'rgba(255, 181, 118, 0.16)',
+    tags: ['Lecture', 'Student eval'],
     children: [
       {
         id: 'classroom-simulator',
@@ -71,6 +74,7 @@ export const probes = [
     description: 'Deploy conversational assistants for ideation, research, and structured planning support.',
     accent: 'from-fuchsia-300/35 via-pink-400/18 to-rose-600/26',
     tint: 'rgba(236, 121, 164, 0.16)',
+    tags: ['Material prep', 'Lecture'],
     children: [
       {
         id: 'brainstorming-copilot',
@@ -86,11 +90,12 @@ export const probes = [
   },
   {
     id: 'auditing-models',
-    title: 'Course Analytics',
+    title: 'Auditing Models',
     eyebrow: 'Course diagnostics',
     description: 'Inspect outputs for consistency, bias, accessibility, and other high-stakes quality signals.',
     accent: 'from-violet-300/35 via-indigo-400/18 to-blue-700/24',
     tint: 'rgba(146, 161, 255, 0.16)',
+    tags: ['Student eval', 'Material prep', 'Research'],
     children: [
       {
         id: 'grading-consistency-audit',
@@ -98,9 +103,9 @@ export const probes = [
         blurb: 'Evaluate grading outputs for alignment with rubrics, fairness across student groups, and consistency across similar responses.',
       },
       {
-        id: 'content-bias-accessibility-audit',
-        title: 'Content Bias and Accessibility Audit',
-        blurb: 'Review generated materials for biased framing, exclusion, and accessibility breakdowns.',
+        id: 'accessibility-check',
+        title: 'Accessibility Check',
+        blurb: 'Review generated course materials for accessibility barriers and inclusive design gaps.',
       },
       {
         id: 'codebook-generation',
@@ -116,6 +121,7 @@ export const probes = [
     description: 'Read long term traces of activity, conversation, and learning behavior to uncover progression.',
     accent: 'from-rose-200/34 via-orange-300/16 to-red-600/24',
     tint: 'rgba(255, 152, 126, 0.16)',
+    tags: ['Student eval', 'Lecture'],
     children: [
       {
         id: 'knowledge-tracing',
@@ -136,6 +142,7 @@ export const probes = [
     description: 'Use face-based recognition workflows to observe attendance and engagement patterns.',
     accent: 'from-yellow-100/38 via-amber-300/16 to-orange-600/24',
     tint: 'rgba(255, 204, 126, 0.16)',
+    tags: ['Lecture', 'Student eval'],
     children: [
       {
         id: 'attendance-engagement',
@@ -151,6 +158,7 @@ export const probes = [
     description: 'Tailor model behavior to domain needs using private data, custom objectives, or specialized evaluation.',
     accent: 'from-slate-200/35 via-violet-300/16 to-fuchsia-600/24',
     tint: 'rgba(184, 156, 255, 0.16)',
+    tags: ['Model setup', 'Material prep'],
     children: [
       {
         id: 'finetuning-private-dataset',

@@ -10,8 +10,7 @@ import BrainstormingCopilotPage from './BrainstormingCopilotPage';
 import DeepResearchPage from './DeepResearchPage';
 import PlanningPage from './PlanningPage';
 import GradingConsistencyAuditPage from './GradingConsistencyAuditPage';
-import ContentBiasAccessibilityAuditPage from './ContentBiasAccessibilityAuditPage';
-import GradingAnalysisFeedbackPage from './GradingAnalysisFeedbackPage';
+import AccessibilityCheckPage from './AccessibilityCheckPage';
 import CodebookGenerationPage from './CodebookGenerationPage';
 import TextSummarizationPage from './TextSummarizationPage';
 import TextClassificationPage from './TextClassificationPage';
@@ -35,8 +34,7 @@ export const probePageRegistry = {
   'deep-research': DeepResearchPage,
   planning: PlanningPage,
   'grading-consistency-audit': GradingConsistencyAuditPage,
-  'content-bias-accessibility-audit': ContentBiasAccessibilityAuditPage,
-  'grading-analysis-feedback': GradingAnalysisFeedbackPage,
+  'accessibility-check': AccessibilityCheckPage,
   'codebook-generation': CodebookGenerationPage,
   'text-summarization': TextSummarizationPage,
   'text-classification': TextClassificationPage,

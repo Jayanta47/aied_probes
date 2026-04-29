@@ -1,7 +1,8 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Tag } from 'lucide-react';
 
 export default function TopLevelCard({ probe, onSelect }) {
   const hasChildren = Boolean(probe.children?.length);
+  const tags = probe.tags ?? [];
 
   return (
     <button
@@ -26,13 +27,26 @@ export default function TopLevelCard({ probe, onSelect }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
-            {hasChildren ? 'Browse probes' : 'Open probe'}
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        <div className="flex items-end justify-between gap-4">
+          <span className="flex min-w-0 flex-wrap gap-2">
+            {tags.length > 0 ? (
+              tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-300/80 bg-white/72 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-600"
+                >
+                  <Tag className="h-3 w-3" />
+                  {tag}
+                </span>
+              ))
+            ) : (
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
+                {hasChildren ? 'Browse probes' : 'Open probe'}
+              </span>
+            )}
           </span>
           <span className="rounded-full border border-slate-300/80 bg-white/70 px-3 py-1 text-xs font-medium text-slate-600">
-            {hasChildren ? `${probe.children.length} exact probes` : 'Direct probe'}
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
         </div>
       </div>

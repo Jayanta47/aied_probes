@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   ArrowLeft,
   ChevronRight,
@@ -40,18 +40,12 @@ function OutputPanel({ displayedOutput, probeData }) {
   );
 }
 
-export default function MultimodalProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
+function MultimodalProbeContent({ topLevelProbe, selectedProbe, onBack, probeData }) {
   const examples = probeData.exampleInputs ?? [];
   const [activeExampleId, setActiveExampleId] = useState(examples[0]?.id ?? null);
   const activeExample = examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null;
   const [inputValue, setInputValue] = useState(activeExample?.input ?? '');
   const [displayedOutput, setDisplayedOutput] = useState(null);
-
-  useEffect(() => {
-    setActiveExampleId(examples[0]?.id ?? null);
-    setInputValue(examples[0]?.input ?? '');
-    setDisplayedOutput(null);
-  }, [selectedProbe.id]);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
@@ -235,4 +229,8 @@ export default function MultimodalProbeLayout({ topLevelProbe, selectedProbe, on
       <WorkflowSection topLevelProbe={topLevelProbe} probeData={probeData} />
     </div>
   );
+}
+
+export default function MultimodalProbeLayout(props) {
+  return <MultimodalProbeContent key={props.selectedProbe.id} {...props} />;
 }

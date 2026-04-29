@@ -14,7 +14,7 @@
   "outputLabel": "Extracted text",
   "outputTitle": "Recognized notes",
   "outputCaption": "The right panel shows the text interpretation of the uploaded handwritten notes.",
-  "workflowImagePath": "",
+  "workflowImagePath": "/workflow/non-digital2text.png",
   "exampleInputs": [
     {
       "id": "class-notes",

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ArrowLeft, ChevronRight, Clipboard, Compass, PlayCircle, Sparkles } from 'lucide-react';
 import WorkflowSection from './WorkflowSection';
 
@@ -11,8 +11,8 @@ function buildAutoplayUrl(url) {
   return `${url}${separator}autoplay=1&start=0&rel=0`;
 }
 
-export default function LlmAgentVideoProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
-  const examples = probeData.examplePrompts ?? [];
+function LlmAgentVideoProbeContent({ topLevelProbe, selectedProbe, onBack, probeData }) {
+  const examples = useMemo(() => probeData.examplePrompts ?? [], [probeData.examplePrompts]);
   const [activeExampleId, setActiveExampleId] = useState(examples[0]?.id ?? null);
   const activeExample = useMemo(
     () => examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null,
@@ -21,13 +21,6 @@ export default function LlmAgentVideoProbeLayout({ topLevelProbe, selectedProbe,
   const [inputValue, setInputValue] = useState(activeExample?.prompt ?? '');
   const [displayedVideoUrl, setDisplayedVideoUrl] = useState('');
   const [videoInstanceKey, setVideoInstanceKey] = useState(0);
-
-  useEffect(() => {
-    setActiveExampleId(examples[0]?.id ?? null);
-    setInputValue(examples[0]?.prompt ?? '');
-    setDisplayedVideoUrl('');
-    setVideoInstanceKey(0);
-  }, [selectedProbe.id, examples]);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
@@ -199,4 +192,8 @@ export default function LlmAgentVideoProbeLayout({ topLevelProbe, selectedProbe,
       <WorkflowSection topLevelProbe={topLevelProbe} probeData={probeData} />
     </div>
   );
+}
+
+export default function LlmAgentVideoProbeLayout(props) {
+  return <LlmAgentVideoProbeContent key={props.selectedProbe.id} {...props} />;
 }

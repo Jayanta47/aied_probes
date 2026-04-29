@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ArrowLeft, ChevronRight, Clipboard, Compass, MessageSquareQuote, Sparkles } from 'lucide-react';
 import WorkflowSection from './WorkflowSection';
 
-export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe, onBack, probeData }) {
+function ConversationalProbeContent({ topLevelProbe, selectedProbe, onBack, probeData }) {
   const examples = probeData.examplePrompts ?? [];
   const [activeExampleId, setActiveExampleId] = useState(examples[0]?.id ?? null);
   const activeExample = examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null;
   const [inputValue, setInputValue] = useState(activeExample?.prompt ?? '');
   const [displayedOutput, setDisplayedOutput] = useState('');
-
-  useEffect(() => {
-    setActiveExampleId(examples[0]?.id ?? null);
-    setInputValue(examples[0]?.prompt ?? '');
-    setDisplayedOutput('');
-  }, [selectedProbe.id]);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
@@ -166,4 +160,8 @@ export default function ConversationalProbeLayout({ topLevelProbe, selectedProbe
       <WorkflowSection topLevelProbe={topLevelProbe} probeData={probeData} />
     </div>
   );
+}
+
+export default function ConversationalProbeLayout(props) {
+  return <ConversationalProbeContent key={props.selectedProbe.id} {...props} />;
 }

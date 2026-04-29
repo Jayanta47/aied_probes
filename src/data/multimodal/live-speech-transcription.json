@@ -14,7 +14,7 @@
   "outputLabel": "Transcript output",
   "outputTitle": "Transcript",
   "outputCaption": "The transcript appears on the right only after the sample recording is uploaded.",
-  "workflowImagePath": "",
+  "workflowImagePath": "/workflow/non-digital2text.png",
   "exampleInputs": [
     {
       "id": "class-recording",

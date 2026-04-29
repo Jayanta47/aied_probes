@@ -1,0 +1,27 @@
+{
+  "id": "accessibility-check",
+  "title": "Accessibility Check",
+  "summary": "Use this probe page to review generated course materials for accessibility barriers, exclusion risks, and revision needs.",
+  "sections": [
+    {
+      "eyebrow": "Focus",
+      "title": "Accessible material review",
+      "body": "Check whether generated materials are readable, usable, inclusive, and appropriate for learners with varied access needs."
+    },
+    {
+      "eyebrow": "Inputs",
+      "title": "Review criteria",
+      "body": "Provide source content, target audience, accessibility expectations, and the kinds of barriers to monitor."
+    }
+  ],
+  "highlights": [
+    {
+      "label": "Best for",
+      "value": "Material prep, accessibility review, and inclusive course design."
+    },
+    {
+      "label": "Output shape",
+      "value": "Flagged issues, accessibility notes, and revision recommendations."
+    }
+  ]
+}
