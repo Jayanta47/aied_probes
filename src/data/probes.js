@@ -35,13 +35,8 @@ export const probes = [
         blurb: 'Turn written inputs into visual outputs such as charts, diagrams, or other generated media.',
       },
       {
-        id: 'live-speech-transcription',
-        title: 'Live Speech Transcription',
-        blurb: 'Capture spoken interactions in real time for note-taking, analysis, and follow-up workflows.',
-      },
-      {
         id: 'visual-ingestion',
-        title: 'Visual Ingestion',
+        title: 'Non-Digital to Text Transcription',
         blurb: 'Read and interpret images, screenshots, and other visual artifacts as structured signals.',
       },
     ],
@@ -83,8 +78,8 @@ export const probes = [
       },
       {
         id: 'planning',
-        title: 'Reasoning and Planning',
-        blurb: 'Transform goals into sequenced steps, options, and operational next moves.',
+        title: 'Thinking Models',
+        blurb: 'Show how a thinking model works through difficult math, algorithms, and multi-step reasoning before giving a final answer.',
       },
     ],
   },
@@ -98,14 +93,9 @@ export const probes = [
     tags: ['Student eval', 'Material prep', 'Research'],
     children: [
       {
-        id: 'grading-consistency-audit',
-        title: 'Grading Consistency Audit',
+        id: 'grading-consistency-check',
+        title: 'Grading Consistency Check',
         blurb: 'Evaluate grading outputs for alignment with rubrics, fairness across student groups, and consistency across similar responses.',
-      },
-      {
-        id: 'accessibility-check',
-        title: 'Accessibility Check',
-        blurb: 'Review generated course materials for accessibility barriers and inclusive design gaps.',
       },
       {
         id: 'codebook-generation',

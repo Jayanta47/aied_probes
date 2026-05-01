@@ -2,10 +2,10 @@
   "id": "finetuning-private-dataset",
   "title": "Finetuning with Private Dataset",
   "summary": "Show faculty how a model can be trained on institution-owned teaching materials and then compared against a generic model during inference.",
-  "workflowImagePath": "",
+  "workflowImagePath": "/workflow/llm-finetune.png",
   "trainingLabel": "Training setup",
   "trainingTitle": "Upload dataset and train",
-  "trainingNote": "Faculty can use past assignments, rubrics, and feedback to adapt an open source model so it better matches local grading expectations.",
+  "trainingNote": "Faculty can use past assignments, rubrics, and feedback to adapt an open source model locally so it better matches course-specific grading expectations.",
   "datasetLabel": "Sample training data",
   "datasetCaption": "Use these sample files to represent the private teaching corpus.",
   "datasetFiles": [
@@ -14,8 +14,8 @@
     "feedback-history.json"
   ],
   "modelLabel": "Open source model",
-  "costLabel": "Estimated training cost",
-  "costValue": "$18.40",
+  "costLabel": "Training mode",
+  "costValue": "Local training",
   "trainButtonLabel": "Start training",
   "trainingStatusLabel": "Training status",
   "trainingInProgressText": "Training in progress",

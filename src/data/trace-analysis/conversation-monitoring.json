@@ -1,0 +1,101 @@
+{
+  "id": "conversation-monitoring",
+  "title": "Conversation Monitoring",
+  "summary": "Generate a static teacher-facing conversation report that surfaces summarized insights without exposing raw messages.",
+  "workflowImagePath": "/workflow/convo_monitor.png",
+  "inputLabel": "Monitoring setup",
+  "inputTitle": "Configure the report",
+  "courseLabel": "Course",
+  "courseOptions": [
+    "Machine Learning",
+    "Data Science",
+    "Linear Algebra",
+    "HCI"
+  ],
+  "channelLabel": "Discussion Channel",
+  "channelOptions": [
+    "Piazza Thread",
+    "Discord Chat",
+    "LMS Forum"
+  ],
+  "timeWindowLabel": "Time Window",
+  "timeWindowOptions": [
+    "Last 1 hour",
+    "Last 24 hours",
+    "This Week"
+  ],
+  "submitLabel": "Generate Conversation Report",
+  "outputLabel": "Monitoring dashboard",
+  "outputTitle": "Structured conversation insights",
+  "emptyOutputText": "Select the course, channel, and time window to generate the predefined conversation report.",
+  "overviewTitle": "Overview",
+  "overviewStats": [
+    {
+      "label": "Active Discussions",
+      "value": "42 messages"
+    },
+    {
+      "label": "Students Participating",
+      "value": "18"
+    },
+    {
+      "label": "Key Topics",
+      "value": "Bayesian Modeling, Grading Policy"
+    }
+  ],
+  "conceptualInsightTitle": "Detected Conceptual Confusion",
+  "conceptualInsight": [
+    {
+      "label": "Topic",
+      "value": "Bayesian prior vs likelihood"
+    },
+    {
+      "label": "Insight",
+      "value": "Students interpret prior as a random guess"
+    },
+    {
+      "label": "Confidence",
+      "value": "High"
+    }
+  ],
+  "behavioralAlertTitle": "Behavioural Alert",
+  "behavioralAlert": [
+    {
+      "label": "Flagged User",
+      "value": "Student_25"
+    },
+    {
+      "label": "Issue",
+      "value": "Discouraging tone"
+    },
+    {
+      "label": "Impact",
+      "value": "May reduce participation"
+    }
+  ],
+  "engagementTrendsTitle": "Engagement Trends",
+  "engagementTrends": [
+    "Participation increases during Q&A",
+    "Drops during theory discussion"
+  ],
+  "engagementChartBars": [
+    {
+      "label": "Theory",
+      "value": 38
+    },
+    {
+      "label": "Examples",
+      "value": 64
+    },
+    {
+      "label": "Q&A",
+      "value": 92
+    }
+  ],
+  "instructorActionTitle": "Recommended Interventions",
+  "instructorActions": [
+    "Clarify prior vs likelihood",
+    "Provide real-world example",
+    "Address grading concerns"
+  ]
+}

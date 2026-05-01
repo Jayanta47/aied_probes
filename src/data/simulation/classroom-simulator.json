@@ -1,0 +1,81 @@
+{
+  "id": "classroom-simulator",
+  "title": "Classroom Simulator",
+  "summary": "Run a static classroom discussion simulation so the flow from setup to interaction output is easy to understand.",
+  "workflowImagePath": "/workflow/classroom_simulation.png",
+  "inputLabel": "Simulation setup",
+  "inputTitle": "Configure the classroom scenario",
+  "topicLabel": "Topic",
+  "topicOptions": [
+    "Bayesian Modeling"
+  ],
+  "contextLabel": "Context",
+  "contextPlaceholder": "Students confused about prior vs likelihood",
+  "rolesLabel": "Roles",
+  "studentLabel": "Student",
+  "studentDescriptionLabel": "Student role description",
+  "studentDescriptionPlaceholder": "Describe the student's personality, motivation, or classroom behavior.",
+  "studentOptions": [
+    "Curious",
+    "Overachiever",
+    "Skeptic"
+  ],
+  "assistantLabel": "Assistant",
+  "assistantDescriptionLabel": "Assistant role description",
+  "assistantDescriptionPlaceholder": "Describe how the assistant should intervene, explain, or hold back.",
+  "assistantOptions": [
+    "Guiding",
+    "Direct",
+    "Minimal"
+  ],
+  "teacherLabel": "Teacher",
+  "teacherDescriptionLabel": "Teacher role description",
+  "teacherDescriptionPlaceholder": "Describe the teacher's style, classroom presence, or facilitation approach.",
+  "teacherOptions": [
+    "Conceptual",
+    "Example",
+    "Interactive"
+  ],
+  "submitLabel": "Run Simulation",
+  "variationLabel": "Alternative Simulation",
+  "outputLabel": "Interaction arena",
+  "outputTitle": "Simulated discussion",
+  "emptyOutputText": "Select a topic, set the classroom roles, and run the simulation to reveal the static discussion.",
+  "customNotesLabel": "Custom role notes",
+  "defaultConversation": [
+    {
+      "role": "Teacher",
+      "message": "Today we explore Bayesian modeling. We update beliefs with new data."
+    },
+    {
+      "role": "Student",
+      "message": "So we start with an assumption before data?"
+    },
+    {
+      "role": "Assistant",
+      "message": "That assumption is the 'prior.' Can you think of a real example?"
+    },
+    {
+      "role": "Student",
+      "message": "Like expecting a student to pass? But how does it update?"
+    }
+  ],
+  "alternativeConversation": [
+    {
+      "role": "Teacher",
+      "message": "How do we update beliefs with new info?"
+    },
+    {
+      "role": "Student",
+      "message": "Why use prior? Why not just data?"
+    },
+    {
+      "role": "Assistant",
+      "message": "What if data is limited?"
+    },
+    {
+      "role": "Teacher",
+      "message": "Prior helps stabilize conclusions."
+    }
+  ]
+}

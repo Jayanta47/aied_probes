@@ -1,8 +1,8 @@
-import LlmAgentVideoProbeLayout from '../../components/probe/LlmAgentVideoProbeLayout';
+import WebAgentDeckProbeLayout from '../../components/probe/WebAgentDeckProbeLayout';
 import { getLlmBasedAgentProbeData } from '../../data/llmBasedAgentProbes';
 
 export default function WebAgentsPage(props) {
   const probeData = getLlmBasedAgentProbeData('web-agents');
 
-  return <LlmAgentVideoProbeLayout {...props} probeData={probeData} />;
+  return <WebAgentDeckProbeLayout {...props} probeData={probeData} />;
 }

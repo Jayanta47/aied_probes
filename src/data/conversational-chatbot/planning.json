@@ -1,26 +1,26 @@
 {
   "id": "planning",
-  "title": "Planning",
-  "summary": "Test how a conversational agent turns a goal into sequenced steps, milestones, and next actions while keeping the experience grounded in plain text.",
-  "inputLabel": "Participant input",
-  "inputPlaceholder": "Paste the planning prompt here or use one of the examples below.",
-  "outputLabel": "Agent response",
-  "outputCaption": "This sample output is pulled from the probe data and can be swapped later without changing the page layout.",
+  "title": "Reasoning and Planning",
+  "summary": "This probe demonstrates a thinking model handling multi-step math and algorithm problems with structured intermediate reasoning and a final answer.",
+  "inputLabel": "Reasoning prompt",
+  "inputPlaceholder": "Paste a difficult math or algorithm prompt here or use one of the examples below.",
+  "outputLabel": "Thinking model response",
+  "outputCaption": "The response panel shows a static example of concise thinking tokens, step structure, and a final answer for a hard reasoning task.",
   "workflowImagePath": "/workflow/llm_advanced.png",
   "examplesLabel": "Example prompts",
-  "examplesCaption": "Participants can copy one of these into the input box before reviewing the paired output.",
+  "examplesCaption": "These examples are designed to highlight the kind of multi-step reasoning that a thinking model is usually asked to perform.",
   "examplePrompts": [
     {
-      "id": "lesson-rollout",
-      "label": "Lesson rollout",
-      "prompt": "I am introducing a new AI literacy lesson for Grade 8 students next month. Create a practical two-week plan for preparing materials, training teachers, and piloting the lesson with one class first.",
-      "output": "Here is a two-week rollout plan.\n\nWeek 1\n1. Define the lesson goal, success criteria, and required classroom materials.\n2. Meet with participating teachers to align on timing, classroom needs, and any technology constraints.\n3. Prepare a pilot version of slides, student handouts, and a short reflection form.\n4. Run a teacher dry-run to identify confusing instructions or pacing issues.\n\nWeek 2\n1. Revise materials based on the dry-run and print or upload final versions.\n2. Pilot the lesson with one class and capture student questions, timing issues, and engagement notes.\n3. Debrief with the teacher immediately after the pilot.\n4. Make final changes before wider rollout.\n\nImmediate next actions\n- Confirm the pilot classroom by Friday.\n- Share the draft materials with teachers for feedback.\n- Schedule the dry-run session early next week."
+      "id": "shortest-path",
+      "label": "Weighted graph reasoning",
+      "prompt": "You are given a weighted graph with nodes A, B, C, D, E, F and edges: A-B=4, A-C=2, B-C=1, B-D=5, C-D=8, C-E=10, D-E=2, D-F=6, E-F=3. Find the shortest path from A to F. Explain which algorithm you would use, show the key reasoning steps, and give the final path cost.",
+      "output": "Thinking model: active\n\nThinking tokens\n[1] Parse graph and identify a positive-weight shortest-path problem\n[2] Select Dijkstra because all edge weights are non-negative\n[3] Expand lowest-cost frontier first\n[4] Track best known distances and update predecessors\n[5] Verify final route by reconstructing the path to F\n\nStructured reasoning\n- Start at A with distance 0.\n- From A: best known distances become B=4 and C=2.\n- Visit C next because 2 is the smallest tentative distance.\n- From C: improve B to 3, set D=10, set E=12.\n- Visit B next because 3 is now smallest.\n- From B: improve D to 8.\n- Visit D next because 8 is smallest.\n- From D: improve E to 10 and set F=14.\n- Visit E next because 10 is smaller than F=14.\n- From E: improve F to 13.\n\nFinal answer\n- Shortest path: A -> C -> B -> D -> E -> F\n- Total cost: 13\n- Algorithm used: Dijkstra's algorithm"
     },
     {
-      "id": "research-project",
-      "label": "Research project",
-      "prompt": "Help me plan a small study on how teachers use generative AI for feedback. I need a timeline that covers recruitment, interviews, analysis, and writing over eight weeks.",
-      "output": "Suggested eight-week plan\n\nWeeks 1-2: Study setup\n- Finalize the research question, interview protocol, and consent materials.\n- Identify target participants and send recruitment invitations.\n\nWeeks 3-4: Data collection\n- Schedule and conduct interviews.\n- Keep brief memos after each interview to capture early themes.\n\nWeeks 5-6: Analysis\n- Transcribe or clean the notes.\n- Code interviews for recurring patterns in teacher goals, concerns, and feedback practices.\n- Compare themes across experience levels or subject areas.\n\nWeeks 7-8: Writing and synthesis\n- Draft findings, implications, and limitations.\n- Create a short summary for stakeholders.\n- Identify what follow-up data collection, if any, is still needed."
+      "id": "dynamic-programming",
+      "label": "Dynamic programming",
+      "prompt": "Given the sequence [3, 10, 2, 1, 20, 4, 6], find the length of the longest increasing subsequence and provide one valid subsequence. Use a reasoning-oriented explanation rather than only the answer.",
+      "output": "Thinking model: active\n\nThinking tokens\n[1] Identify sequence optimization task\n[2] Choose dynamic programming over brute force\n[3] Compute LIS length ending at each index\n[4] Backtrack from the best endpoint to recover one subsequence\n\nStructured reasoning\n- LIS ending at 3 is 1.\n- LIS ending at 10 is 2 using [3, 10].\n- LIS ending at 2 is 1.\n- LIS ending at 1 is 1.\n- LIS ending at 20 is 3 using [3, 10, 20].\n- LIS ending at 4 is 2 using [3, 4] or [2, 4].\n- LIS ending at 6 is 3 using [3, 4, 6] or [2, 4, 6].\n- The maximum LIS length found is 3.\n\nFinal answer\n- Longest increasing subsequence length: 3\n- One valid subsequence: [3, 10, 20]\n- Reasoning style: dynamic programming with backtracking"
     }
   ],
   "highlights": [
@@ -30,11 +30,11 @@
     },
     {
       "label": "Output medium",
-      "value": "Structured text response"
+      "value": "Structured reasoning response"
     },
     {
       "label": "Best for",
-      "value": "Sequencing work, surfacing milestones, and turning broad goals into next steps"
+      "value": "Difficult math, algorithms, and multi-step reasoning tasks that benefit from deliberate thinking"
     }
   ]
 }

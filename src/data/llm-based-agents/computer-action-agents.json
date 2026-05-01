@@ -11,7 +11,7 @@
   "outputLabel": "Video response",
   "outputTitle": "Embedded demo",
   "outputCaption": "This uses a placeholder YouTube embed link stored in the data section and can be swapped later with the final video.",
-  "workflowImagePath": "",
+  "workflowImagePath": "/workflow/computer-use-agent.png",
   "examplePrompts": [
     {
       "id": "grading-workflow",

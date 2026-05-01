@@ -1,23 +1,30 @@
 {
   "id": "web-agents",
   "title": "Web Agents",
-  "summary": "Show how a browser-based agent can respond to a prompt with a demonstration video, revealed only after the participant presses Enter.",
+  "summary": "Show how a browser-based agent researches across web pages and documents, then generates a slide deck as the final output.",
   "inputLabel": "Task prompt",
-  "inputTitle": "Prompt box",
-  "inputPlaceholder": "Describe a web-based task for the agent.",
-  "submitLabel": "Enter",
+  "inputTitle": "Research brief",
+  "inputPlaceholder": "Describe the topic the web agent should research and turn into a deck.",
+  "submitLabel": "Generate deck",
   "examplesLabel": "Example prompts",
-  "examplesCaption": "Choose a prompt, then press Enter to load the demonstration video from the beginning.",
-  "outputLabel": "Video response",
-  "outputTitle": "Embedded demo",
-  "outputCaption": "The YouTube link is stored in the data file for now, so it can be replaced later without changing the layout.",
-  "workflowImagePath": "/workflow/image-1-10.png",
+  "examplesCaption": "Choose a prompt, then generate the deck to simulate web research, document review, and slide creation.",
+  "outputLabel": "Generated deck",
+  "outputTitle": "Slide deck viewer",
+  "outputCaption": "The final output is a static PDF deck shown after the research pipeline finishes.",
+  "workflowImagePath": "/workflow/web-agent.png",
+  "pdfPath": "/workflow/Interpretability-of-Coding-Agent.pdf",
+  "pipelineLabel": "Generation pipeline",
+  "pipelineSteps": [
+    "Searching relevant web pages for coding-agent interpretability resources",
+    "Opening policy notes, technical blogs, and reference documents",
+    "Reading PDFs and extracting recurring themes",
+    "Organizing findings into slide sections and speaker-ready summaries"
+  ],
   "examplePrompts": [
     {
-      "id": "course-search",
-      "label": "Course search workflow",
-      "prompt": "Find three introductory AI courses for teachers, compare their learning outcomes, and summarize the main differences in a table.",
-      "videoEmbedUrl": "https://www.youtube.com/embed/AflkZK0vlf0"
+      "id": "interpretability-deck",
+      "label": "Interpretability deck",
+      "prompt": "Research interpretability approaches for coding agents by reviewing web articles, technical writeups, and any relevant PDFs. Then generate a concise slide deck for teachers that explains what coding-agent interpretability is, why it matters, and which practical signals they should look for."
     }
   ]
 }

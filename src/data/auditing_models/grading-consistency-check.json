@@ -1,0 +1,68 @@
+{
+  "id": "grading-consistency-check",
+  "title": "Grading Consistency Check",
+  "summary": "Run a static grading consistency check so the flow from course selection to flagged inconsistencies is easy to understand.",
+  "workflowImagePath": "/workflow/grading_consistency.png",
+  "inputLabel": "Check setup",
+  "inputTitle": "Prepare the grading review",
+  "courseLabel": "Select Course",
+  "courseOptions": [
+    "Intro to Data Science",
+    "Machine Learning",
+    "Linear Algebra",
+    "HCI"
+  ],
+  "dataSourcesLabel": "Data Sources",
+  "dataSources": [
+    "Exam Scripts",
+    "Marksheet",
+    "Rubric"
+  ],
+  "submitLabel": "Run Grading Check",
+  "outputLabel": "Check output",
+  "outputTitle": "Inconsistency report",
+  "emptyOutputText": "Select a course and run the grading check to reveal the predefined review output.",
+  "reportLabel": "Flagged scripts",
+  "reportSummaryLabel": "Grading inconsistencies detected",
+  "reportSummaryText": "Several responses show mismatches between the assigned score, the written justification, and either comparable student answers or rubric expectations.",
+  "reportCards": [
+    {
+      "student": "Student A12",
+      "question": "Q7",
+      "score": "6/10",
+      "problem": "The script received a lower score than comparable answers despite covering the same core reasoning steps.",
+      "conflictSource": "Conflict with similar student responses",
+      "conflictDetail": "Two other scripts with nearly identical logic and evidence were scored 8/10 and 9/10.",
+      "reviewNote": "The grading appears harsher than the pattern used for peer responses."
+    },
+    {
+      "student": "Student B04",
+      "question": "Q9",
+      "score": "9/10",
+      "problem": "The answer was not penalized for a logical fallacy even though the rubric explicitly requires that error to reduce the score.",
+      "conflictSource": "Conflict with rubric criteria",
+      "conflictDetail": "The rubric marks unsupported causal claims as a deduction trigger, but the explanation mentions no penalty.",
+      "reviewNote": "The written reasoning does not match the rubric standard used for the rest of the batch."
+    },
+    {
+      "student": "Student C19",
+      "question": "Q3",
+      "score": "7/10",
+      "problem": "Feedback praises the answer as clear and complete, but the assigned score signals only partial mastery.",
+      "conflictSource": "Conflict between score and grader reasoning",
+      "conflictDetail": "The written comment describes strong conceptual understanding, while the numeric score is below similarly praised submissions.",
+      "reviewNote": "The narrative feedback and numeric grade are pulling in different directions."
+    },
+    {
+      "student": "Student D08",
+      "question": "Q5",
+      "score": "5/10",
+      "problem": "This response was penalized for missing an example, but other scripts without examples were graded more leniently.",
+      "conflictSource": "Conflict with grading pattern across scripts",
+      "conflictDetail": "Comparable answers lacking the same supporting example were scored 6/10 and 7/10.",
+      "reviewNote": "The deduction threshold is not being applied consistently across the set."
+    }
+  ],
+  "finalOutcomeLabel": "Final Outcome",
+  "finalOutcomeStatus": "Flagged scripts for inconsistency"
+}

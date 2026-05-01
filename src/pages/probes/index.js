@@ -9,7 +9,7 @@ import SocraticPartnerPage from './SocraticPartnerPage';
 import BrainstormingCopilotPage from './BrainstormingCopilotPage';
 import DeepResearchPage from './DeepResearchPage';
 import PlanningPage from './PlanningPage';
-import GradingConsistencyAuditPage from './GradingConsistencyAuditPage';
+import GradingConsistencyCheckPage from './GradingConsistencyCheckPage';
 import AccessibilityCheckPage from './AccessibilityCheckPage';
 import CodebookGenerationPage from './CodebookGenerationPage';
 import TextSummarizationPage from './TextSummarizationPage';
@@ -33,7 +33,8 @@ export const probePageRegistry = {
   'brainstorming-copilot': BrainstormingCopilotPage,
   'deep-research': DeepResearchPage,
   planning: PlanningPage,
-  'grading-consistency-audit': GradingConsistencyAuditPage,
+  'grading-consistency-check': GradingConsistencyCheckPage,
+  'grading-consistency-audit': GradingConsistencyCheckPage,
   'accessibility-check': AccessibilityCheckPage,
   'codebook-generation': CodebookGenerationPage,
   'text-summarization': TextSummarizationPage,

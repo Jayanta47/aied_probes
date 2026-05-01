@@ -1,4 +1,0 @@
-import { createProbePage } from './createProbePage';
-import { getAuditingModelProbeData } from '../../data/auditingModelProbes';
-
-export default createProbePage(getAuditingModelProbeData('grading-consistency-audit'));
