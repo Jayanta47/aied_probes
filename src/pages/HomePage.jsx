@@ -102,9 +102,19 @@ export default function HomePage({
                     <h2 className="text-3xl font-semibold leading-tight text-slate-950 md:text-4xl">
                       {selectedParent.title}
                     </h2>
-                    <p className="mt-3 max-w-xl text-sm leading-7 text-slate-700 md:text-base">
-                      {selectedParent.description}
-                    </p>
+                    <div
+                      className="mt-4 max-w-2xl rounded-[24px] border border-slate-200 px-4 py-4 shadow-[0_18px_40px_rgba(148,163,184,0.12)]"
+                      style={{
+                        background: `linear-gradient(155deg, rgba(255,255,255,0.96), ${selectedParent.tint})`,
+                      }}
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                        AI capability focus
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-slate-700 md:text-base">
+                        {selectedParent.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
