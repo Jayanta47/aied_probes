@@ -1,0 +1,39 @@
+{
+  "id": "virtual-teacher",
+  "title": "Virtual Teacher Substitute",
+  "summary": "Simulate what happens when a student needs help with an assignment and the real teacher is offline. The teacher pre-configures the substitute with lesson context and guardrails — the virtual substitute then steps in to answer student questions in the teacher's style.",
+  "workflowImagePath": "/workflow/virtual_teacher.png",
+  "topicLabel": "Assignment topic",
+  "topicOptions": ["Bayesian Modeling", "Linear Regression", "Hypothesis Testing"],
+  "difficultyLabel": "Student difficulty level",
+  "difficultyOptions": ["Beginner", "Intermediate", "Advanced"],
+  "policiesLabel": "Instructional guardrails",
+  "policies": [
+    "Stay within the assignment topic",
+    "Use examples to clarify abstract concepts",
+    "Guide reasoning — don't just give the answer"
+  ],
+  "activateLabel": "Activate Virtual Substitute",
+  "outputLabel": "Interaction arena",
+  "outputTitle": "Virtual Teacher Session",
+  "emptyOutputText": "Set up the lesson context and activate the virtual substitute to simulate a student help session.",
+  "offlineNote": "Your teacher is currently offline. This virtual substitute has been configured to help with assignment questions within the scope of the lesson.",
+  "conversation": [
+    {
+      "role": "Student",
+      "message": "I'm working on the Bayesian modeling assignment and I'm stuck on what a prior actually represents. Can you help?"
+    },
+    {
+      "role": "Virtual Teacher",
+      "message": "Of course! The prior is your belief about something before you have seen any data. If you are estimating whether a coin is fair, a common prior is that heads and tails are equally likely — a 50/50 split. It captures what you already assume going in."
+    },
+    {
+      "role": "Student",
+      "message": "Okay, that makes sense. So when I collect data — like flipping the coin many times — does the prior just get replaced by the data?"
+    },
+    {
+      "role": "Virtual Teacher",
+      "message": "Not replaced — updated. The result is called the posterior, and it combines your prior with the likelihood, which describes how probable your observed data is under each hypothesis. With enough data, the posterior shifts toward what the evidence supports, and your prior has less and less influence."
+    }
+  ]
+}
