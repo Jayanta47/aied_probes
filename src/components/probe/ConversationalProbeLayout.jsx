@@ -1,6 +1,79 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ChevronRight, Clipboard, Compass, MessageSquareQuote, Sparkles } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import WorkflowSection from './WorkflowSection';
+
+const MotionDiv = motion.div;
+
+function parseStructuredOutput(output) {
+  const sections = output.split('\n\n');
+  const cards = [];
+
+  sections.forEach((section) => {
+    const [heading, ...rest] = section.split('\n');
+    const body = rest.join('\n').trim();
+
+    if (!heading?.trim()) {
+      return;
+    }
+
+    if (/^Thinking model:/i.test(heading)) {
+      cards.push({
+        id: `status-${cards.length}`,
+        kind: 'status',
+        title: heading.replace(/^Thinking model:\s*/i, 'Thinking model: '),
+        items: body ? [body] : [],
+      });
+      return;
+    }
+
+    if (heading === 'Thinking tokens') {
+      cards.push({
+        id: `tokens-${cards.length}`,
+        kind: 'tokens',
+        title: heading,
+        items: body.split('\n').filter(Boolean),
+      });
+      return;
+    }
+
+    if (heading === 'Structured reasoning') {
+      cards.push({
+        id: `reasoning-${cards.length}`,
+        kind: 'reasoning',
+        title: heading,
+        items: body
+          .split('\n')
+          .filter(Boolean)
+          .map((line) => line.replace(/^- /, '').trim()),
+      });
+      return;
+    }
+
+    if (heading === 'Final answer') {
+      cards.push({
+        id: `final-${cards.length}`,
+        kind: 'final',
+        title: heading,
+        items: body
+          .split('\n')
+          .filter(Boolean)
+          .map((line) => line.replace(/^- /, '').trim()),
+      });
+      return;
+    }
+
+    const lines = [heading, ...rest].filter(Boolean);
+    cards.push({
+      id: `plain-${cards.length}`,
+      kind: 'plain',
+      title: lines[0],
+      items: lines.slice(1).length ? lines.slice(1) : [lines[0]],
+    });
+  });
+
+  return cards;
+}
 
 function ConversationalProbeContent({ topLevelProbe, selectedProbe, onBack, probeData }) {
   const examples = probeData.examplePrompts ?? [];
@@ -8,6 +81,33 @@ function ConversationalProbeContent({ topLevelProbe, selectedProbe, onBack, prob
   const activeExample = examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null;
   const [inputValue, setInputValue] = useState(activeExample?.prompt ?? '');
   const [displayedOutput, setDisplayedOutput] = useState('');
+  const [visibleCardCount, setVisibleCardCount] = useState(0);
+
+  const outputCards = useMemo(() => {
+    if (!displayedOutput) {
+      return [];
+    }
+
+    return parseStructuredOutput(displayedOutput);
+  }, [displayedOutput]);
+
+  useEffect(() => {
+    if (!outputCards.length) {
+      setVisibleCardCount(0);
+      return undefined;
+    }
+
+    setVisibleCardCount(1);
+    const timers = outputCards.slice(1).map((_, index) =>
+      window.setTimeout(() => {
+        setVisibleCardCount(index + 2);
+      }, (index + 1) * 350),
+    );
+
+    return () => {
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+  }, [outputCards]);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
@@ -148,9 +248,52 @@ function ConversationalProbeContent({ topLevelProbe, selectedProbe, onBack, prob
                   <MessageSquareQuote className="h-4 w-4" />
                   Sample response
                 </div>
-                <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                  {displayedOutput || 'Press Enter to show the sample text response for the current prompt.'}
-                </p>
+                {outputCards.length ? (
+                  <div className="mt-4 space-y-3">
+                    <AnimatePresence initial={false}>
+                      {outputCards.slice(0, visibleCardCount).map((card) => (
+                        <MotionDiv
+                          key={card.id}
+                          initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.3, ease: 'easeOut' }}
+                          className={`rounded-[22px] border p-4 ${
+                            card.kind === 'final'
+                              ? 'border-emerald-200 bg-emerald-50'
+                              : card.kind === 'tokens'
+                                ? 'border-sky-200 bg-sky-50/85'
+                                : card.kind === 'status'
+                                  ? 'border-violet-200 bg-violet-50/90'
+                                  : 'border-slate-200 bg-white'
+                          }`}
+                        >
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{card.title}</p>
+                          <div className="mt-3 space-y-2">
+                            {card.items.map((item) => (
+                              <div
+                                key={`${card.id}-${item}`}
+                                className={`rounded-[18px] px-3 py-3 text-sm leading-6 ${
+                                  card.kind === 'tokens'
+                                    ? 'border border-sky-200 bg-white text-slate-700'
+                                    : card.kind === 'final'
+                                      ? 'border border-emerald-200 bg-white/80 font-medium text-emerald-950'
+                                      : 'border border-slate-200 bg-slate-50/70 text-slate-700'
+                                }`}
+                              >
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        </MotionDiv>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    Press Enter to show the sample text response for the current prompt.
+                  </p>
+                )}
               </div>
               <p className="mt-4 text-sm leading-7 text-slate-500">{probeData.outputCaption}</p>
             </div>

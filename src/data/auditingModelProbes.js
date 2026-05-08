@@ -4,6 +4,7 @@ import gradingConsistencyCheck from './auditing_models/grading-consistency-check
 
 const auditingModelProbes = {
   'accessibility-check': accessibilityCheck,
+  'accessibility-audit': accessibilityCheck,
   'codebook-generation': codebookGeneration,
   'grading-consistency-check': gradingConsistencyCheck,
   'grading-consistency-audit': gradingConsistencyCheck,

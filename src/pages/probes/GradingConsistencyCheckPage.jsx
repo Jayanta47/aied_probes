@@ -161,22 +161,22 @@ export default function GradingConsistencyCheckPage({ topLevelProbe, selectedPro
                     <div className="grid gap-4 p-5 md:grid-cols-[1fr_0.9fr]">
                       <div className="space-y-4">
                         <div className="rounded-[20px] border border-slate-200 bg-slate-50/90 p-4">
-                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">What is inconsistent</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Worth a second look</p>
                           <p className="mt-2 text-sm leading-7 text-slate-700">{card.problem}</p>
                         </div>
                         <div className="rounded-[20px] border border-slate-200 bg-slate-50/90 p-4">
-                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Conflict source</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Related context</p>
                           <p className="mt-2 text-sm font-semibold text-slate-900">{card.conflictSource}</p>
                           <p className="mt-2 text-sm leading-7 text-slate-700">{card.conflictDetail}</p>
                         </div>
                       </div>
 
-                      <div className="rounded-[20px] border border-rose-200 bg-rose-50 p-4">
-                        <div className="flex items-center gap-2 text-sm font-semibold text-rose-900">
+                      <div className="rounded-[20px] border border-amber-200 bg-amber-50 p-4">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-amber-900">
                           <ShieldAlert className="h-4 w-4" />
-                          Review note
+                          Review Suggestion
                         </div>
-                        <p className="mt-3 text-sm leading-7 text-rose-900">{card.reviewNote}</p>
+                        <p className="mt-3 text-sm leading-7 text-amber-900">{card.reviewNote}</p>
                       </div>
                     </div>
                   </div>
@@ -189,7 +189,7 @@ export default function GradingConsistencyCheckPage({ topLevelProbe, selectedPro
                   {probeData.reportLabel}
                 </div>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  {probeData.finalOutcomeStatus}: {probeData.reportCards.length} cases surfaced for reviewer follow-up.
+                  {probeData.finalOutcomeStatus}: {probeData.reportCards.length} responses surfaced for optional calibration follow-up.
                 </p>
               </div>
             </div>

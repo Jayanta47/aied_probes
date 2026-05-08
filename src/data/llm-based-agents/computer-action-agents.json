@@ -1,23 +1,23 @@
 {
   "id": "computer-action-agents",
   "title": "Computer Use Agents (Copilots)",
-  "summary": "Show how a computer-use agent can respond to a prompt with a recorded demonstration video that starts only after Enter is pressed.",
+  "summary": "Show how a computer-use agent can carry out a software task from a plain-language instruction and then demonstrate the steps in a recorded video.",
   "inputLabel": "Task prompt",
   "inputTitle": "Prompt box",
-  "inputPlaceholder": "Describe the software task the copilot should complete.",
+  "inputPlaceholder": "Describe the software task the copilot should complete in tools like Canvas.",
   "submitLabel": "Enter",
   "examplesLabel": "Example prompts",
   "examplesCaption": "Choose a prompt, then press Enter to load the software-action demo from the beginning.",
   "outputLabel": "Video response",
   "outputTitle": "Embedded demo",
-  "outputCaption": "This uses a placeholder YouTube embed link stored in the data section and can be swapped later with the final video.",
+  "outputCaption": "The video stays hidden until Enter is pressed so the demo still feels like a prompt-to-action interaction.",
   "workflowImagePath": "/workflow/computer-use-agent.png",
   "examplePrompts": [
     {
-      "id": "grading-workflow",
-      "label": "Grading support workflow",
-      "prompt": "Open the grading spreadsheet, identify missing rubric scores, and prepare a draft feedback summary for the instructor to review.",
-      "videoEmbedUrl": "https://www.youtube.com/embed/HhoBVKs66Ds"
+      "id": "canvas-announcement",
+      "label": "Canvas quiz announcement",
+      "prompt": "Go to Canvas and post my quiz announcement for Tuesday.",
+      "videoEmbedUrl": "https://www.youtube.com/embed/u2wx3UFKqRg"
     }
   ]
 }

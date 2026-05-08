@@ -36,6 +36,7 @@ export const probePageRegistry = {
   'grading-consistency-check': GradingConsistencyCheckPage,
   'grading-consistency-audit': GradingConsistencyCheckPage,
   'accessibility-check': AccessibilityCheckPage,
+  'accessibility-audit': AccessibilityCheckPage,
   'codebook-generation': CodebookGenerationPage,
   'text-summarization': TextSummarizationPage,
   'text-classification': TextClassificationPage,

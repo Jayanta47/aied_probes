@@ -1,17 +1,60 @@
 {
   "id": "accessibility-check",
   "title": "Accessibility Check",
-  "summary": "Use this probe page to review generated course materials for accessibility barriers, exclusion risks, and revision needs.",
-  "sections": [
+  "summary": "Review course materials for accessibility barriers and surface practical revision suggestions against WCAG-style checks.",
+  "workflowImagePath": "/workflow/accessibility_check.png",
+  "inputLabel": "Audit setup",
+  "inputTitle": "Choose course materials to review",
+  "inputCaption": "Educators can upload files directly or pull materials from Canvas before running a lightweight accessibility audit demo.",
+  "materialOptions": [
     {
-      "eyebrow": "Focus",
-      "title": "Accessible material review",
-      "body": "Check whether generated materials are readable, usable, inclusive, and appropriate for learners with varied access needs."
+      "id": "upload",
+      "label": "Upload course materials",
+      "description": "Bring in lecture slides, handouts, PDFs, or image-based materials."
     },
     {
-      "eyebrow": "Inputs",
-      "title": "Review criteria",
-      "body": "Provide source content, target audience, accessibility expectations, and the kinds of barriers to monitor."
+      "id": "canvas",
+      "label": "Get materials from Canvas",
+      "description": "Pull a prepared package of pages, files, and slides from the LMS."
+    }
+  ],
+  "materialPreviewLabel": "Selected materials",
+  "materialPreview": {
+    "upload": [
+      "Week 3 lecture slides",
+      "Module overview infographic",
+      "Assignment 2 rubric"
+    ],
+    "canvas": [
+      "Canvas page: Exam review guide",
+      "Canvas file: Week 5 slides",
+      "Canvas image: Lab safety graphic"
+    ]
+  },
+  "submitLabel": "Run Accessibility Audit",
+  "outputLabel": "Audit output",
+  "outputTitle": "Accessibility review",
+  "outputCaption": "The demo returns a sample compliance score first, followed by example issues that an educator could revise.",
+  "emptyOutputText": "Choose a source for course materials, then run the audit to reveal the sample accessibility review.",
+  "complianceLabel": "WCAG compliance",
+  "complianceScore": "76% compliant",
+  "complianceSummary": "Most materials meet baseline accessibility expectations, with a few revisions recommended before sharing broadly.",
+  "issues": [
+    {
+      "id": "contrast",
+      "title": "Low contrast may be difficult for color-blind learners",
+      "material": "Week 5 slides",
+      "severity": "Needs contrast adjustment",
+      "description": "A light green heading sits on a pale gray background, reducing readability for learners with low vision or color-contrast needs.",
+      "recommendation": "Increase the text-to-background contrast and avoid relying on hue alone to signal importance."
+    },
+    {
+      "id": "alt-text",
+      "title": "Image is missing alt text",
+      "material": "Module overview infographic",
+      "severity": "Missing alt text",
+      "description": "The infographic communicates key deadlines visually, but screen-reader users would not receive the same information.",
+      "recommendation": "Add concise alt text that explains the main dates and instructional purpose of the image."
     }
   ],
   "highlights": [
