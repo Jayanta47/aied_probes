@@ -24,7 +24,7 @@
     {
       "id": "interpretability-deck",
       "label": "Interpretability deck",
-      "prompt": "Research interpretability approaches for coding agents by reviewing web articles, technical writeups, and any relevant PDFs. Then generate a concise slide deck for teachers that explains what coding-agent interpretability is, why it matters, and which practical signals they should look for."
+      "prompt": "Research the error propagation in coding agents and their interpretability by reviewing web articles and research articles. Then generate a concise slide deck for teachers that explains the key issues and potential solutions"
     }
   ]
 }

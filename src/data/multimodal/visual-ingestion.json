@@ -1,27 +1,34 @@
 {
   "id": "visual-ingestion",
   "title": "Visual Ingestion",
-  "summary": "Simulate passing handwritten class notes into the system and show the extracted text on the right after upload.",
+  "summary": "Simulate passing non-digital materials into the system, such as handwritten notes or short audio clips, and show the extracted transcription on the right after upload.",
   "inputMode": "upload",
   "inputLabel": "Visual input",
-  "inputTitle": "Handwritten class notes",
-  "uploadLabel": "Upload handwritten notes",
-  "uploadNote": "This upload is only for the visual design. Press the button to simulate sending in scanned handwritten notes.",
-  "sampleFileLabel": "Selected file",
-  "submitLabel": "Upload notes",
+  "inputTitle": "Handwriting or audio",
+  "uploadLabel": "Upload handwritten notes or audio",
+  "uploadNote": "This upload is only for the visual design. Select either a handwritten note sample or a short lecture audio sample, then press the button to simulate transcription.",
+  "sampleFileLabel": "Selected upload",
+  "submitLabel": "Upload materials",
   "examplesLabel": "Sample input",
-  "examplesCaption": "Use the handwritten notes sample below to see how extracted text would appear.",
+  "examplesCaption": "Choose either the handwriting sample or the audio sample below to see a different transcription output.",
   "outputLabel": "Extracted text",
-  "outputTitle": "Recognized notes",
-  "outputCaption": "The right panel shows the text interpretation of the uploaded handwritten notes.",
+  "outputTitle": "Recognized transcription",
+  "outputCaption": "The right panel shows a sample transcription for the currently selected handwriting or audio upload.",
   "workflowImagePath": "/workflow/non-digital2text.png",
   "exampleInputs": [
     {
-      "id": "class-notes",
-      "label": "Handwritten classnotes",
-      "input": "handwritten-classnotes.jpg",
+      "id": "linear-algebra-notes",
+      "label": "Handwritten lecture notes",
+      "input": "linear-algebra-notes.jpg",
       "outputType": "text",
-      "outputText": "Photosynthesis notes\n\n- Plants use sunlight to make food\n- Inputs: water + carbon dioxide + light energy\n- Output: glucose + oxygen\n- Mostly happens in the chloroplasts\n- Chlorophyll helps absorb light\n- Important because it stores energy and releases oxygen"
+      "outputText": "Preliminary linear algebra notes\n\n- A vector is an ordered list of numbers.\n- We begin with vectors in R^2 and R^3.\n- Vector addition happens component by component.\n- Scalar multiplication changes magnitude and may reverse direction.\n- A matrix can be used to represent a linear transformation."
+    },
+    {
+      "id": "linear-algebra-audio",
+      "label": "Lecture audio clip",
+      "input": "linear-algebra-lecture-audio.m4a",
+      "outputType": "text",
+      "outputText": "Preliminary linear algebra lecture audio\n\n- Today we are building intuition before moving into formal proofs.\n- You can think of a vector as an arrow with both magnitude and direction.\n- Matrix-vector multiplication tells us how a transformation acts on that arrow.\n- Next class we will connect these ideas to systems of linear equations and span."
     }
   ]
 }

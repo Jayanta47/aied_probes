@@ -12,6 +12,18 @@ import {
 } from 'lucide-react';
 import WorkflowSection from './WorkflowSection';
 
+function getExampleFiles(example) {
+  if (Array.isArray(example?.inputs) && example.inputs.length) {
+    return example.inputs;
+  }
+
+  if (example?.input) {
+    return [example.input];
+  }
+
+  return [];
+}
+
 function OutputPanel({ displayedOutput, probeData }) {
   if (displayedOutput?.type === 'image' && displayedOutput.src) {
     return (
@@ -44,12 +56,12 @@ function MultimodalProbeContent({ topLevelProbe, selectedProbe, onBack, probeDat
   const examples = probeData.exampleInputs ?? [];
   const [activeExampleId, setActiveExampleId] = useState(examples[0]?.id ?? null);
   const activeExample = examples.find((example) => example.id === activeExampleId) ?? examples[0] ?? null;
-  const [inputValue, setInputValue] = useState(activeExample?.input ?? '');
+  const [inputValue, setInputValue] = useState(activeExample?.input ?? activeExample?.inputs?.[0] ?? '');
   const [displayedOutput, setDisplayedOutput] = useState(null);
 
   const applyExample = (example) => {
     setActiveExampleId(example.id);
-    setInputValue(example.input);
+    setInputValue(example.input ?? example.inputs?.[0] ?? '');
   };
 
   const handleSubmit = () => {
@@ -141,7 +153,7 @@ function MultimodalProbeContent({ topLevelProbe, selectedProbe, onBack, probeDat
                 </div>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{probeData.uploadNote}</p>
                 <div className="mt-4 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700">
-                  {probeData.sampleFileLabel}: {inputValue || activeExample?.input}
+                  {probeData.sampleFileLabel}: {inputValue || activeExample?.input || activeExample?.inputs?.[0]}
                 </div>
               </div>
             ) : (
@@ -208,7 +220,13 @@ function MultimodalProbeContent({ topLevelProbe, selectedProbe, onBack, probeDat
                         {isUploadMode ? 'Use file' : 'Use example'}
                       </button>
                     </div>
-                    <p className="mt-3 line-clamp-4 whitespace-pre-wrap text-sm leading-6 text-slate-600">{example.input}</p>
+                    <div className="mt-3 space-y-2">
+                      {getExampleFiles(example).map((file) => (
+                        <p key={file} className="whitespace-pre-wrap text-sm leading-6 text-slate-600">
+                          {file}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 );
               })}
